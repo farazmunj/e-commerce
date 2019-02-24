@@ -13,7 +13,8 @@
 	"require" : {
 		"slim/slim" : "3.12.0",
 		"slim/php-view" : "^2.0",
-		"monolog/monolog" : "1.24.0"
+		"monolog/monolog" : "1.24.0",
+		"doctrine/orm" : "~2.6"
 	},
 	"autoload-dev" : {
 		"psr-4" : {
