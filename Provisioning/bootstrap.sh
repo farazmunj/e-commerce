@@ -63,6 +63,13 @@ sudo echo '<VirtualHost *:80>
 
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	<Directory "/vagrant">
+    	AllowOverride "All"
+		Options SymLinksIfOwnerMatch
+		Require all granted
+		Order allow,deny
+		Allow from all
+  	</Directory>
 </VirtualHost>
 '  > /etc/apache2/sites-available/000-default.conf
 }
