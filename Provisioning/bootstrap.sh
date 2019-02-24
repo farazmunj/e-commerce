@@ -17,7 +17,7 @@ installComposer() {
 	  cd /vagrant || return;
 	  printLog "Installing Composer for PHP package management"
 	  curl --silent https://getcomposer.org/installer | php
-	  sudo COMPOSER=/vagrant/composer.json php composer.phar install --quiet --prefer-dist > /dev/null
+	  php composer.phar install --quiet --prefer-dist > /dev/null
 	  cd ~ || exit;
 	fi
 }
@@ -46,24 +46,26 @@ importDB(){
 	sudo mysql -u root -e "GRANT ALL PRIVILEGES on * . * to 'system_core'@'localhost' "
 	sudo mysql -u root -e "GRANT ALL PRIVILEGES on * . * to 'system_core'@'%' "
 
-	#mysql --host localhost --user=root --password='RootPw90$' system_core < system_core.sql
+	sudo mysql --host localhost --user=root system_core < /vagrant/data/system_core.sql
 }
 
 installPHP(){
 
 	printLog "Install PHP"
 	sudo apt --assume-yes install php
+	sudo apt -y  install php-xml
+	sudo apt -y  install php-mbstring
 
 sudo echo '<VirtualHost *:80>
 
 	#ServerName www.example.com
 
 	ServerAdmin webmaster@localhost
-	DocumentRoot /vagrant
+	DocumentRoot /vagrant/public
 
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
-	<Directory "/vagrant">
+	<Directory "/vagrant/public">
     	AllowOverride "All"
 		Options SymLinksIfOwnerMatch
 		Require all granted
@@ -95,6 +97,8 @@ installPHP
 installComposer;
 installMysql;
 importDB;
+
+chmod 777 /vagrant/logs/app.log
 
 printLog "Restart apache";
 sudo service mysql restart
