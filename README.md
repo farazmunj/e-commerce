@@ -15,7 +15,3 @@ Deliverables
 -----------
 * Database migrations and sample data
 * Code
-
-Notes
------------
-Should you have any questions don't hesitate to call us.
