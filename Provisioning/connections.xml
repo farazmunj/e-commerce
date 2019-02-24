@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<data grt_format="2.0">
+  <value _ptr_="0x55c4a5c1bcd0" type="list" content-type="object" content-struct-name="db.mgmt.Connection">
+    <value type="object" struct-name="db.mgmt.Connection" id="fa537a65-3841-11e9-b3db-50e549a34a9a" struct-checksum="0x96ba47d8">
+      <link type="object" struct-name="db.mgmt.Driver" key="driver">com.mysql.rdbms.mysql.driver.native_sshtun</link>
+      <value type="string" key="hostIdentifier">Mysql@localhost:3306@192.168.33.10:22</value>
+      <value type="int" key="isDefault">0</value>
+      <value _ptr_="0x55c4a665cae0" type="dict" key="modules"/>
+      <value _ptr_="0x55c4a64427c0" type="dict" key="parameterValues">
+        <value type="string" key="SQL_MODE"></value>
+        <value type="string" key="hostName">localhost</value>
+        <value type="int" key="lastConnected">1551020585</value>
+        <value type="string" key="password"></value>
+        <value type="int" key="port">3306</value>
+        <value type="string" key="schema"></value>
+        <value type="string" key="serverVersion">5.7.25-1</value>
+        <value type="string" key="sshHost">192.168.33.10:22</value>
+        <value type="string" key="sshKeyFile">/home/faraz/git/e-commerce/.vagrant/machines/default/virtualbox/private_key</value>
+        <value type="string" key="sshPassword"></value>
+        <value type="string" key="sshUserName">vagrant</value>
+        <value type="string" key="sslCA"></value>
+        <value type="string" key="sslCert"></value>
+        <value type="string" key="sslCipher"></value>
+        <value type="string" key="sslKey"></value>
+        <value type="int" key="useSSL">1</value>
+        <value type="string" key="userName">system_core</value>
+      </value>
+      <value type="string" key="name">vagrant</value>
+    </value>
+  </value>
+</data>
