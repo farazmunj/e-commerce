@@ -53,8 +53,9 @@ installPHP(){
 
 	printLog "Install PHP"
 	sudo apt --assume-yes install php
-	sudo apt -y  install php-xml
-	sudo apt -y  install php-mbstring
+	sudo apt -y install php-xml
+	sudo apt -y install php-mbstring
+	sudo apt -y install php-mysql
 
 sudo echo '<VirtualHost *:80>
 
@@ -93,6 +94,7 @@ printLog "Change permissions"
 
 
 #sudo setsebool -P httpd_can_network_connect=1
+sudo a2enmod rewrite
 installPHP
 installComposer;
 installMysql;

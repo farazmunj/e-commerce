@@ -16,28 +16,10 @@ return [
             'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG
         ],
-        'doctrine' => [
-            // if true, metadata caching is forcefully disabled
-            'dev_mode' => true,
-
-            // path where the compiled metadata info will be cached
-            // make sure the path exists and it is writable
-            'cache_dir' => APP_ROOT . '/var/doctrine',
-
-            // you should add any other path containing annotated entity classes
-            'metadata_dirs' => [
-                APP_ROOT . '/src/Domain'
-            ],
-
-            'connection' => [
-                'driver' => 'pdo_mysql',
-                'host' => 'localhost',
-                'port' => 3306,
-                'dbname' => 'system_core',
-                'user' => 'system_core',
-                'password' => 'Nokai82!0',
-                'charset' => 'utf-8'
-            ]
+        'db' => [
+            'dsn' => 'mysql:host=localhost;dbname=system_core;charset=utf8',
+            'usr' => 'system_core',
+            'pwd' => 'Nokai82!0'
         ]
     ]
 ];

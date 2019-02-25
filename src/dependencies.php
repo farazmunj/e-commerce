@@ -1,6 +1,5 @@
 <?php
 // DIC configuration
-
 $container = $app->getContainer();
 
 // view renderer
@@ -16,4 +15,10 @@ $container['logger'] = function ($c) {
     $logger->pushProcessor(new Monolog\Processor\UidProcessor());
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
+};
+
+// database
+$container['database'] = function ($c) {
+    $settings = $c->get('settings')['db'];
+    return new \Slim\PDO\Database($settings['dsn'], $settings['usr'], $settings['pwd']);
 };
