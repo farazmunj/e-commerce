@@ -17,9 +17,9 @@ return [
             'level' => \Monolog\Logger::DEBUG
         ],
         'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=system_core;charset=utf8',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=system_core;charset=utf8',
             'usr' => 'system_core',
-            'pwd' => 'Nokai82!0'
+            'pwd' => 'Nokia82!0'
         ]
     ]
 ];

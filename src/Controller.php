@@ -8,15 +8,17 @@ class Controller
 
     protected $container;
 
+    /**
+     *
+     * @var \Slim\PDO\Database
+     */
     protected $database;
 
     // constructor receives container instance
     public function __construct(ContainerInterface $container)
     {
-        echo $container->get('database');
-        die();
         $this->container = $container;
-        $this->database = $container->get('default')->database;
+        $this->database = $container->get('database');
     }
 
     public function __invoke($request, $response, $args)
