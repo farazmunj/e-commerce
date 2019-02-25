@@ -15,3 +15,13 @@ Deliverables
 -----------
 * Database migrations and sample data
 * Code
+
+
+Structure
+----------
+use vagrant and virtual box to create environment.
+local server will run on http://192.168.33.10/
+
+Database schema and sample data is in *data* folder
+
+sample endpoing is on http://192.168.33.10/product/1
