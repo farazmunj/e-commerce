@@ -255,7 +255,7 @@ CREATE TABLE `ProductDiscount` (
   KEY `fk_ProductDiscount_type_idx` (`discountTypeId`),
   CONSTRAINT `fk_ProductDiscount_product` FOREIGN KEY (`productId`) REFERENCES `Product` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_ProductDiscount_type` FOREIGN KEY (`discountTypeId`) REFERENCES `DiscountType` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,6 +264,7 @@ CREATE TABLE `ProductDiscount` (
 
 LOCK TABLES `ProductDiscount` WRITE;
 /*!40000 ALTER TABLE `ProductDiscount` DISABLE KEYS */;
+INSERT INTO `ProductDiscount` VALUES (1,3,9,'Apple Discount',1);
 /*!40000 ALTER TABLE `ProductDiscount` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +283,7 @@ CREATE TABLE `ProductDiscountQty` (
   PRIMARY KEY (`id`),
   KEY `fk_GroupDiscountQty_group0_idx` (`productDiscountId`),
   CONSTRAINT `fk_GroupDiscountQty_group0` FOREIGN KEY (`productDiscountId`) REFERENCES `ProductDiscount` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,6 +292,7 @@ CREATE TABLE `ProductDiscountQty` (
 
 LOCK TABLES `ProductDiscountQty` WRITE;
 /*!40000 ALTER TABLE `ProductDiscountQty` DISABLE KEYS */;
+INSERT INTO `ProductDiscountQty` VALUES (1,1,2,3.00);
 /*!40000 ALTER TABLE `ProductDiscountQty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-24 21:07:17
+-- Dump completed on 2019-02-25 23:22:27
