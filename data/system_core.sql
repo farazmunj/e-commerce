@@ -30,7 +30,7 @@ CREATE TABLE `Basket` (
   `unitPrice` double(10,2) NOT NULL DEFAULT '0.00',
   `total` double(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `Basket` (
 
 LOCK TABLES `Basket` WRITE;
 /*!40000 ALTER TABLE `Basket` DISABLE KEYS */;
+INSERT INTO `Basket` VALUES (1,'pqkjjhu67offfleuaj6hglo34c',1,3.00,1.10,1.10);
 /*!40000 ALTER TABLE `Basket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +293,7 @@ CREATE TABLE `ProductDiscountQty` (
 
 LOCK TABLES `ProductDiscountQty` WRITE;
 /*!40000 ALTER TABLE `ProductDiscountQty` DISABLE KEYS */;
-INSERT INTO `ProductDiscountQty` VALUES (1,1,2,3.00);
+INSERT INTO `ProductDiscountQty` VALUES (1,1,3,3.00);
 /*!40000 ALTER TABLE `ProductDiscountQty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,4 +333,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-25 23:22:27
+-- Dump completed on 2019-02-26 23:00:41
