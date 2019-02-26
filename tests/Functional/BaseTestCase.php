@@ -22,7 +22,7 @@ class BaseTestCase extends TestCase
      *
      * @var bool
      */
-    protected $withMiddleware = true;
+    protected static $withMiddleware = true;
 
     /**
      * Process the application given a request method and URI
@@ -64,7 +64,7 @@ class BaseTestCase extends TestCase
         require __DIR__ . '/../../src/dependencies.php';
 
         // Register middleware
-        if ($this->withMiddleware) {
+        if (self::$withMiddleware) {
             require __DIR__ . '/../../src/middleware.php';
         }
 
@@ -78,7 +78,7 @@ class BaseTestCase extends TestCase
         return $response;
     }
 
-    public function setupApp()
+    public static function setupApp()
     {
         global $app;
         // Use the application settings
@@ -91,7 +91,7 @@ class BaseTestCase extends TestCase
         require __DIR__ . '/../../src/dependencies.php';
 
         // Register middleware
-        if ($this->withMiddleware) {
+        if (self::$withMiddleware) {
             require __DIR__ . '/../../src/middleware.php';
         }
 
