@@ -25,3 +25,9 @@ local server will run on http://192.168.33.10/
 Database schema and sample data is in *data* folder
 
 sample endpoing is on http://192.168.33.10/product/1
+
+sample endpoing is on http://192.168.33.10/basket/add/1
+
+continue unit testing 
+
+ while(true) do clear; php vendor/bin/phpunit; sleep 8; done;
