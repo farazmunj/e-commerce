@@ -22,6 +22,10 @@ class Basket
 
     private $table = 'Basket';
 
+    private $tableDiscount = 'BasketDiscount';
+
+    private $total = 0;
+
     private function __construct()
     {
         global $app;
@@ -77,12 +81,22 @@ class Basket
         $this->database->delete($this->table)
             ->where('sessionId', '=', $this->sessionId)
             ->execute();
+        $this->database->delete($this->tableDiscount)
+            ->where('sessionId', '=', $this->sessionId)
+            ->execute();
+        $this->items = [];
+        $this->discounts = [];
+        $this->total = 0;
+        return true;
     }
 
     public function update()
     {
         $this->save();
     }
+
+    private function calculateDiscount()
+    {}
 
     private function save()
     {
