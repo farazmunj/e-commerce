@@ -95,18 +95,51 @@ class Basket
         $this->save();
     }
 
-    private function calculateDiscount()
-    {}
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function getDiscount()
+    {
+        return $this->discounts;
+    }
+
+    public function calculateDiscount()
+    {
+        $this->calculateProductDiscount();
+    }
+
+    private function calculateProductDiscount()
+    {
+        // calculate product Discount
+        $discountObj = new Discount();
+        foreach ($this->items as &$item) {
+            $stmt = $this->database->select()
+                ->from('ProductDiscount')
+                ->join('ProductDiscountQty', 'ProductDiscount.id', '=', 'ProductDiscountQty.productDiscountId')
+                ->where('ProductDiscount.productId', '=', $item->productId)
+                ->where('ProductDiscountQty.quantity', '<=', $item->quantity)
+                ->where('ProductDiscount.active', '=', 1)
+                ->orderBy('ProductDiscountQty.quantity', 'ASC')
+                ->execute();
+            while ($discount = $stmt->fetch(\PDO::FETCH_OBJ)) {
+                $discCalculated = $discountObj->calculateDiscount($discount->discountTypeId, $item->quantity, $item->unitPrice, $discount->quantity, $discount->discount);
+                $this->discounts[] = $discCalculated;
+            }
+        }
+        unset($item); // kill pointer/refrence
+    }
 
     private function save()
     {
-        foreach ($this->items as $item) {
+        foreach ($this->items as &$item) {
             if (isset($item->updated)) {
                 unset($item->updated);
                 if (null === $item->id) {
-                    $this->database->insert((array) $item)
+                    $item->id = $this->database->insert((array) $item)
                         ->into($this->table)
-                        ->execute(false);
+                        ->execute();
                 } else {
                     $this->database->update((array) $item)
                         ->table($this->table)
@@ -115,6 +148,7 @@ class Basket
                 }
             }
         }
+        unset($item); // kill pointer/refrence
     }
 }
 
