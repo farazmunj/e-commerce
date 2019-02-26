@@ -24,7 +24,6 @@ class Controller
     public function __invoke($request, $response, $args)
     {
         // your code
-        // to access items in the container... $this->container->get('');
         return $response;
     }
 }

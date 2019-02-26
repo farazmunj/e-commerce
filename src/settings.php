@@ -1,5 +1,4 @@
 <?php
-define('APP_ROOT', __DIR__);
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production

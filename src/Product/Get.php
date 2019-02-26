@@ -1,7 +1,9 @@
 <?php
 namespace Core\Product;
 
-class Add extends \Core\Controller
+use Core\Product\Models\Product;
+
+class Get extends \Core\Controller
 {
 
     function __invoke($request, $response, $args)
@@ -9,16 +11,13 @@ class Add extends \Core\Controller
         $return = [];
         $productId = (int) $args['id'];
         // get product from DB
-        $statement = $this->database->select()
-            ->from('Product')
-            ->where('id', '=', $productId);
-        $stmt = $statement->execute();
-        $return['product'] = $stmt->fetch();
+        $product = new Product($productId);
+        $return['product'] = $product->get();
         if ($return['product']) {
             // get product unit from DB
             $statement = $this->database->select()
                 ->from('ProductUnit')
-                ->where('id', '=', $return['product']['unitId']);
+                ->where('id', '=', $return['product']->unitId);
             $stmt = $statement->execute();
             $return['unit'] = $stmt->fetch();
 
