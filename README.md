@@ -20,13 +20,13 @@ Deliverables
 Structure
 ----------
 use vagrant and virtual box to create environment.
-local server will run on http://192.168.33.10/
+local server will run on http://192.168.155.15/
 
 Database schema and sample data is in *data* folder
 
-sample endpoing is on http://192.168.33.10/product/1
+sample endpoing is on http://192.168.155.15/product/1
 
-sample endpoing is on http://192.168.33.10/basket/add/1
+sample endpoing is on http://192.168.155.15/basket/add/1
 
 continue unit testing 
 

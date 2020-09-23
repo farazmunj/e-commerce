@@ -103,5 +103,5 @@ importDB;
 chmod 777 /vagrant/logs/app.log
 
 printLog "Restart apache";
-sudo service mysql restart
-sudo service apache2 restart
+sudo systemctl restart mysql
+sudo systemctl restart apache2
